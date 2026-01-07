@@ -194,6 +194,18 @@
             opacity: 0.7;
         }
 
+        .btn-game.active {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        .btn-game.active:hover {
+            background: linear-gradient(135deg, #38ef7d, #11998e);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+        }
+
         .icon {
             font-size: 1.2rem;
         }
@@ -287,6 +299,13 @@
             font-weight: 600;
             margin-top: 5px;
         }
+
+        .available-now {
+            color: #27ae60;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -369,12 +388,12 @@
                             <span class="icon">📝</span>
                             <span>الشرح والتدريبات</span>
                         </a>
-                        <span class="btn btn-game">
+                        <a href="https://omk811.github.io/KanaPlay/" class="btn btn-game active" target="_blank">
                             <span class="icon">🎮</span>
                             <span>الألعاب</span>
-                        </span>
+                        </a>
                     </div>
-                    <div class="coming-soon">⏳ الألعاب التفاعلية قريباً</div>
+                    <div class="available-now">✅ الألعاب التفاعلية متاحة الآن!</div>
                 </div>
 
                 <div class="lesson-card">
