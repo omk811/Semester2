@@ -24,6 +24,7 @@
             --gradient-secondary: linear-gradient(135deg, #7209b7 0%, #4361ee 100%);
             --gradient-accent: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
             --gradient-success: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
+            --gradient-reading: linear-gradient(135deg, #2d9e6b 0%, #1a7a52 100%);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
             --radius: 16px;
@@ -176,6 +177,10 @@
             background: var(--gradient-accent);
         }
 
+        .reading .category-header {
+            background: var(--gradient-reading);
+        }
+
         .category-icon {
             font-size: 1.8rem;
         }
@@ -200,6 +205,10 @@
             position: relative;
         }
 
+        .reading .lesson-card {
+            border-right-color: #2d9e6b;
+        }
+
         .lesson-card:hover {
             background: white;
             transform: translateX(-8px);
@@ -221,6 +230,11 @@
             font-weight: bold;
             font-size: 1.3rem;
             box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+        }
+
+        .reading .lesson-number {
+            background: var(--gradient-reading);
+            box-shadow: 0 5px 15px rgba(45, 158, 107, 0.4);
         }
 
         .lesson-title {
@@ -261,6 +275,16 @@
             box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
         }
 
+        .btn-lesson-reading {
+            background: var(--gradient-reading);
+            color: white;
+        }
+
+        .btn-lesson-reading:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 158, 107, 0.4);
+        }
+
         .btn-game {
             background: #e9ecef;
             color: #6c757d;
@@ -294,6 +318,11 @@
         .available-now {
             background: #edf7ff;
             color: #0d6efd;
+        }
+
+        .available-reading {
+            background: #edfaf4;
+            color: #1a7a52;
         }
 
         /* الفوتر */
@@ -377,6 +406,7 @@
         .category:nth-child(1) { animation-delay: 0.1s; }
         .category:nth-child(2) { animation-delay: 0.2s; }
         .category:nth-child(3) { animation-delay: 0.3s; }
+        .category:nth-child(4) { animation-delay: 0.4s; }
 
         /* شريط التقدم */
         .progress-container {
@@ -390,6 +420,13 @@
         .progress-bar {
             height: 100%;
             background: var(--gradient-success);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-bar-reading {
+            height: 100%;
+            background: var(--gradient-reading);
             border-radius: 10px;
             transition: width 0.5s ease;
         }
@@ -443,12 +480,6 @@
             .categories {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .category:last-child {
-                grid-column: span 2;
-                max-width: calc(50% - 15px);
-                margin: 0 auto;
-            }
         }
 
         /* تحسينات إضافية */
@@ -468,9 +499,17 @@
             transition: var(--transition);
         }
 
+        .reading .lesson-card::before {
+            background: #2d9e6b;
+        }
+
         .lesson-card:hover::before {
             width: 8px;
             background: var(--accent);
+        }
+
+        .reading .lesson-card:hover::before {
+            background: #1a7a52;
         }
     </style>
 </head>
@@ -708,6 +747,62 @@
                     </div>
                 </div>
             </div>
+
+            <!-- دروس القراءة - المحور الرابع -->
+            <div class="category reading">
+                <div class="category-header">
+                    <i class="fas fa-glasses category-icon"></i>
+                    <div class="category-title">القراءة - المحور الرابع</div>
+                </div>
+                <div class="lessons-container">
+                    <div class="lesson-card">
+                        <div class="lesson-number">1</div>
+                        <div class="lesson-title">العالم أصغر عن ذي قبل</div>
+                        <div class="lesson-links">
+                            <a href="https://omk811.github.io/world/" class="btn btn-lesson-reading" target="_blank">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>الشرح والتدريبات</span>
+                            </a>
+                            <a href="#" class="btn btn-game" target="_blank">
+                                <i class="fas fa-gamepad"></i>
+                                <span>الألعاب</span>
+                            </a>
+                        </div>
+                        <div class="status available-reading">
+                            <i class="fas fa-check-circle"></i>
+                            <span>الشرح والتدريبات متاحة الآن!</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-reading" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">60% مكتمل</div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <div class="lesson-number">2</div>
+                        <div class="lesson-title">الديناصورات عاشت في عُمان</div>
+                        <div class="lesson-links">
+                            <a href="https://omk811.github.io/Dinosaurs/" class="btn btn-lesson-reading" target="_blank">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>الشرح والتدريبات</span>
+                            </a>
+                            <a href="#" class="btn btn-game" target="_blank">
+                                <i class="fas fa-gamepad"></i>
+                                <span>الألعاب</span>
+                            </a>
+                        </div>
+                        <div class="status available-reading">
+                            <i class="fas fa-check-circle"></i>
+                            <span>الشرح والتدريبات متاحة الآن!</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-reading" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">60% مكتمل</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <footer>
@@ -735,36 +830,26 @@
     </div>
 
     <script>
-        // إضافة تأثيرات تفاعلية بسيطة
         document.addEventListener('DOMContentLoaded', function() {
-            // تأثير عند التمرير على البطاقات
             const lessonCards = document.querySelectorAll('.lesson-card');
             lessonCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateX(-8px)';
                 });
-                
                 card.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateX(0)';
                 });
             });
             
-            // تأثير على الأزرار
             const buttons = document.querySelectorAll('.btn');
             buttons.forEach(button => {
                 button.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-3px)';
                 });
-                
                 button.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0)';
                 });
             });
-            
-            // عرض رسالة ترحيبية
-            setTimeout(() => {
-                console.log('مرحباً بكم في منصة دروس اللغة العربية! نتمنى لكم تجربة تعليمية ممتعة.');
-            }, 1000);
         });
     </script>
 </body>
