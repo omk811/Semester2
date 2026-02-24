@@ -25,6 +25,7 @@
             --gradient-accent: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
             --gradient-success: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
             --gradient-reading: linear-gradient(135deg, #2d9e6b 0%, #1a7a52 100%);
+            --gradient-reading5: linear-gradient(135deg, #e07b00 0%, #b85c00 100%);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
             --radius: 16px;
@@ -46,7 +47,6 @@
             margin: 0 auto;
         }
 
-        /* الهيدر */
         header {
             background: var(--gradient-primary);
             border-radius: var(--radius);
@@ -103,7 +103,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* قسم المقدمة */
         .intro {
             background: white;
             border-radius: var(--radius);
@@ -134,7 +133,6 @@
             border-right: 4px solid var(--warning);
         }
 
-        /* الفئات */
         .categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -165,36 +163,17 @@
             gap: 15px;
         }
 
-        .literary .category-header {
-            background: var(--gradient-primary);
-        }
+        .literary .category-header { background: var(--gradient-primary); }
+        .grammar .category-header { background: var(--gradient-secondary); }
+        .spelling .category-header { background: var(--gradient-accent); }
+        .reading .category-header { background: var(--gradient-reading); }
+        .reading5 .category-header { background: var(--gradient-reading5); }
 
-        .grammar .category-header {
-            background: var(--gradient-secondary);
-        }
+        .category-icon { font-size: 1.8rem; }
+        .category-title { font-size: 1.6rem; font-weight: bold; }
 
-        .spelling .category-header {
-            background: var(--gradient-accent);
-        }
+        .lessons-container { padding: 25px; }
 
-        .reading .category-header {
-            background: var(--gradient-reading);
-        }
-
-        .category-icon {
-            font-size: 1.8rem;
-        }
-
-        .category-title {
-            font-size: 1.6rem;
-            font-weight: bold;
-        }
-
-        .lessons-container {
-            padding: 25px;
-        }
-
-        /* بطاقات الدروس */
         .lesson-card {
             background: var(--light);
             border-radius: 12px;
@@ -203,11 +182,11 @@
             border-right: 5px solid var(--primary);
             transition: var(--transition);
             position: relative;
+            overflow: hidden;
         }
 
-        .reading .lesson-card {
-            border-right-color: #2d9e6b;
-        }
+        .reading .lesson-card { border-right-color: #2d9e6b; }
+        .reading5 .lesson-card { border-right-color: #e07b00; }
 
         .lesson-card:hover {
             background: white;
@@ -235,6 +214,11 @@
         .reading .lesson-number {
             background: var(--gradient-reading);
             box-shadow: 0 5px 15px rgba(45, 158, 107, 0.4);
+        }
+
+        .reading5 .lesson-number {
+            background: var(--gradient-reading5);
+            box-shadow: 0 5px 15px rgba(224, 123, 0, 0.4);
         }
 
         .lesson-title {
@@ -285,6 +269,16 @@
             box-shadow: 0 8px 20px rgba(45, 158, 107, 0.4);
         }
 
+        .btn-lesson-reading5 {
+            background: var(--gradient-reading5);
+            color: white;
+        }
+
+        .btn-lesson-reading5:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(224, 123, 0, 0.4);
+        }
+
         .btn-game {
             background: #e9ecef;
             color: #6c757d;
@@ -310,22 +304,11 @@
             gap: 8px;
         }
 
-        .coming-soon {
-            background: #fff5f7;
-            color: #d63384;
-        }
+        .coming-soon { background: #fff5f7; color: #d63384; }
+        .available-now { background: #edf7ff; color: #0d6efd; }
+        .available-reading { background: #edfaf4; color: #1a7a52; }
+        .available-reading5 { background: #fff4e6; color: #b85c00; }
 
-        .available-now {
-            background: #edf7ff;
-            color: #0d6efd;
-        }
-
-        .available-reading {
-            background: #edfaf4;
-            color: #1a7a52;
-        }
-
-        /* الفوتر */
         footer {
             background: white;
             border-radius: var(--radius);
@@ -336,16 +319,9 @@
             border-top: 5px solid var(--accent);
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .footer-content { max-width: 800px; margin: 0 auto; }
 
-        footer p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #555;
-        }
+        footer p { font-size: 1.1rem; margin-bottom: 15px; color: #555; }
 
         .teacher-name {
             color: var(--primary);
@@ -387,28 +363,18 @@
             transform: translateY(-3px);
         }
 
-        /* تحسينات للرسوم المتحركة */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .category, .intro, footer {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
+        .category, .intro, footer { animation: fadeInUp 0.6s ease forwards; }
         .category:nth-child(1) { animation-delay: 0.1s; }
         .category:nth-child(2) { animation-delay: 0.2s; }
         .category:nth-child(3) { animation-delay: 0.3s; }
         .category:nth-child(4) { animation-delay: 0.4s; }
+        .category:nth-child(5) { animation-delay: 0.5s; }
 
-        /* شريط التقدم */
         .progress-container {
             background: #e9ecef;
             border-radius: 10px;
@@ -431,62 +397,14 @@
             transition: width 0.5s ease;
         }
 
-        .progress-text {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-top: 5px;
-            text-align: left;
+        .progress-bar-reading5 {
+            height: 100%;
+            background: var(--gradient-reading5);
+            border-radius: 10px;
+            transition: width 0.5s ease;
         }
 
-        /* استجابة للهواتف */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .categories {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-links {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .social-link {
-                width: 100%;
-                max-width: 250px;
-                justify-content: center;
-            }
-        }
-
-        /* استجابة للأجهزة اللوحية */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* تحسينات إضافية */
-        .lesson-card {
-            position: relative;
-            overflow: hidden;
-        }
+        .progress-text { font-size: 0.9rem; color: #6c757d; margin-top: 5px; text-align: left; }
 
         .lesson-card::before {
             content: "";
@@ -499,17 +417,29 @@
             transition: var(--transition);
         }
 
-        .reading .lesson-card::before {
-            background: #2d9e6b;
-        }
+        .reading .lesson-card::before { background: #2d9e6b; }
+        .reading5 .lesson-card::before { background: #e07b00; }
 
         .lesson-card:hover::before {
             width: 8px;
             background: var(--accent);
         }
 
-        .reading .lesson-card:hover::before {
-            background: #1a7a52;
+        .reading .lesson-card:hover::before { background: #1a7a52; }
+        .reading5 .lesson-card:hover::before { background: #b85c00; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; flex-direction: column; gap: 10px; }
+            .subtitle { font-size: 1.2rem; }
+            .categories { grid-template-columns: 1fr; }
+            .lesson-links { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .social-links { flex-direction: column; align-items: center; }
+            .social-link { width: 100%; max-width: 250px; justify-content: center; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .categories { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -537,6 +467,7 @@
         </div>
 
         <div class="categories">
+
             <!-- النصوص الأدبية -->
             <div class="category literary">
                 <div class="category-header">
@@ -551,7 +482,7 @@
                             <a href="https://omk811.github.io/Doctor-advice-lesson/" class="btn btn-lesson" target="_blank">
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>الشرح والتدريبات</span>
-                           </a>
+                            </a>
                             <a href="https://omk811.github.io/Nasaeh-tabeeb-game//" class="btn btn-game active" target="_blank">
                                 <i class="fas fa-gamepad"></i>
                                 <span>الألعاب</span>
@@ -699,7 +630,7 @@
                         </div>
                         <div class="progress-text">100% مكتمل</div>
                     </div>
-                    
+
                     <div class="lesson-card">
                         <div class="lesson-number">2</div>
                         <div class="lesson-title">الفاصلة المنقوطة</div>
@@ -707,7 +638,7 @@
                             <a href="https://omk811.github.io/Semicolon-lesson/" class="btn btn-lesson" target="_blank">
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>الشرح والتدريبات</span>
-                           </a>
+                            </a>
                             <a href="https://omk811.github.io/Semicolon-game/" class="btn btn-game active" target="_blank">
                                 <i class="fas fa-gamepad"></i>
                                 <span>الألعاب</span>
@@ -803,6 +734,61 @@
                 </div>
             </div>
 
+            <!-- دروس القراءة - المحور الخامس -->
+            <div class="category reading5">
+                <div class="category-header">
+                    <i class="fas fa-book-open category-icon"></i>
+                    <div class="category-title">القراءة - المحور الخامس</div>
+                </div>
+                <div class="lessons-container">
+                    <div class="lesson-card">
+                        <div class="lesson-number">1</div>
+                        <div class="lesson-title">لعبة العنبر</div>
+                        <div class="lesson-links">
+                            <a href="https://omk811.github.io/3nbr/" class="btn btn-lesson-reading5" target="_blank">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>الشرح والتدريبات</span>
+                            </a>
+                            <a href="#" class="btn btn-game" target="_blank">
+                                <i class="fas fa-gamepad"></i>
+                                <span>الألعاب</span>
+                            </a>
+                        </div>
+                        <div class="status available-reading5">
+                            <i class="fas fa-check-circle"></i>
+                            <span>الشرح والتدريبات متاحة الآن!</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-reading5" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">60% مكتمل</div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <div class="lesson-number">2</div>
+                        <div class="lesson-title">نصر زائف</div>
+                        <div class="lesson-links">
+                            <a href="https://omk811.github.io/nasser/" class="btn btn-lesson-reading5" target="_blank">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>الشرح والتدريبات</span>
+                            </a>
+                            <a href="#" class="btn btn-game" target="_blank">
+                                <i class="fas fa-gamepad"></i>
+                                <span>الألعاب</span>
+                            </a>
+                        </div>
+                        <div class="status available-reading5">
+                            <i class="fas fa-check-circle"></i>
+                            <span>الشرح والتدريبات متاحة الآن!</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-reading5" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">60% مكتمل</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <footer>
@@ -810,7 +796,7 @@
                 <p>🌟 إعداد وتصميم 🌟</p>
                 <p class="teacher-name">الأستاذ خليل البلوشي</p>
                 <p class="school-name">مدرسة سعد بن معاذ للتعليم الأساسي</p>
-                
+
                 <div class="social-links">
                     <a href="https://youtube.com/@teacherKhalil811" class="social-link" target="_blank">
                         <i class="fab fa-youtube"></i>
@@ -821,7 +807,7 @@
                         <span>زوروا مدونتنا</span>
                     </a>
                 </div>
-                
+
                 <p style="color: #888; margin-top: 25px; font-size: 0.95rem;">
                     <i class="far fa-copyright"></i> جميع الحقوق محفوظة 2025/2026
                 </p>
@@ -840,7 +826,7 @@
                     this.style.transform = 'translateX(0)';
                 });
             });
-            
+
             const buttons = document.querySelectorAll('.btn');
             buttons.forEach(button => {
                 button.addEventListener('mouseenter', function() {
