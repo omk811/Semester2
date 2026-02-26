@@ -26,6 +26,7 @@
             --gradient-success: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
             --gradient-reading: linear-gradient(135deg, #2d9e6b 0%, #1a7a52 100%);
             --gradient-reading5: linear-gradient(135deg, #e07b00 0%, #b85c00 100%);
+            --gradient-reading6: linear-gradient(135deg, #7b2d9e 0%, #5a1a7a 100%);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
             --radius: 16px;
@@ -168,6 +169,7 @@
         .spelling .category-header { background: var(--gradient-accent); }
         .reading .category-header { background: var(--gradient-reading); }
         .reading5 .category-header { background: var(--gradient-reading5); }
+        .reading6 .category-header { background: var(--gradient-reading6); }
 
         .category-icon { font-size: 1.8rem; }
         .category-title { font-size: 1.6rem; font-weight: bold; }
@@ -187,6 +189,7 @@
 
         .reading .lesson-card { border-right-color: #2d9e6b; }
         .reading5 .lesson-card { border-right-color: #e07b00; }
+        .reading6 .lesson-card { border-right-color: #7b2d9e; }
 
         .lesson-card:hover {
             background: white;
@@ -219,6 +222,11 @@
         .reading5 .lesson-number {
             background: var(--gradient-reading5);
             box-shadow: 0 5px 15px rgba(224, 123, 0, 0.4);
+        }
+
+        .reading6 .lesson-number {
+            background: var(--gradient-reading6);
+            box-shadow: 0 5px 15px rgba(123, 45, 158, 0.4);
         }
 
         .lesson-title {
@@ -279,6 +287,16 @@
             box-shadow: 0 8px 20px rgba(224, 123, 0, 0.4);
         }
 
+        .btn-lesson-reading6 {
+            background: var(--gradient-reading6);
+            color: white;
+        }
+
+        .btn-lesson-reading6:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 45, 158, 0.4);
+        }
+
         .btn-game {
             background: #e9ecef;
             color: #6c757d;
@@ -308,6 +326,7 @@
         .available-now { background: #edf7ff; color: #0d6efd; }
         .available-reading { background: #edfaf4; color: #1a7a52; }
         .available-reading5 { background: #fff4e6; color: #b85c00; }
+        .available-reading6 { background: #f5eeff; color: #5a1a7a; }
 
         footer {
             background: white;
@@ -374,6 +393,7 @@
         .category:nth-child(3) { animation-delay: 0.3s; }
         .category:nth-child(4) { animation-delay: 0.4s; }
         .category:nth-child(5) { animation-delay: 0.5s; }
+        .category:nth-child(6) { animation-delay: 0.6s; }
 
         .progress-container {
             background: #e9ecef;
@@ -404,6 +424,13 @@
             transition: width 0.5s ease;
         }
 
+        .progress-bar-reading6 {
+            height: 100%;
+            background: var(--gradient-reading6);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
         .progress-text { font-size: 0.9rem; color: #6c757d; margin-top: 5px; text-align: left; }
 
         .lesson-card::before {
@@ -419,6 +446,7 @@
 
         .reading .lesson-card::before { background: #2d9e6b; }
         .reading5 .lesson-card::before { background: #e07b00; }
+        .reading6 .lesson-card::before { background: #7b2d9e; }
 
         .lesson-card:hover::before {
             width: 8px;
@@ -427,6 +455,7 @@
 
         .reading .lesson-card:hover::before { background: #1a7a52; }
         .reading5 .lesson-card:hover::before { background: #b85c00; }
+        .reading6 .lesson-card:hover::before { background: #5a1a7a; }
 
         @media (max-width: 768px) {
             h1 { font-size: 2rem; flex-direction: column; gap: 10px; }
@@ -694,10 +723,6 @@
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>الشرح والتدريبات</span>
                             </a>
-                            <a href="#" class="btn btn-game" target="_blank">
-                                <i class="fas fa-gamepad"></i>
-                                <span>الألعاب</span>
-                            </a>
                         </div>
                         <div class="status available-reading">
                             <i class="fas fa-check-circle"></i>
@@ -706,7 +731,7 @@
                         <div class="progress-container">
                             <div class="progress-bar-reading" style="width: 60%"></div>
                         </div>
-                        <div class="progress-text">60% مكتمل</div>
+                        <div class="progress-text">100% مكتمل</div>
                     </div>
 
                     <div class="lesson-card">
@@ -717,10 +742,6 @@
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>الشرح والتدريبات</span>
                             </a>
-                            <a href="#" class="btn btn-game" target="_blank">
-                                <i class="fas fa-gamepad"></i>
-                                <span>الألعاب</span>
-                            </a>
                         </div>
                         <div class="status available-reading">
                             <i class="fas fa-check-circle"></i>
@@ -729,7 +750,7 @@
                         <div class="progress-container">
                             <div class="progress-bar-reading" style="width: 60%"></div>
                         </div>
-                        <div class="progress-text">60% مكتمل</div>
+                        <div class="progress-text">100% مكتمل</div>
                     </div>
                 </div>
             </div>
@@ -749,10 +770,6 @@
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>الشرح والتدريبات</span>
                             </a>
-                            <a href="#" class="btn btn-game" target="_blank">
-                                <i class="fas fa-gamepad"></i>
-                                <span>الألعاب</span>
-                            </a>
                         </div>
                         <div class="status available-reading5">
                             <i class="fas fa-check-circle"></i>
@@ -761,7 +778,7 @@
                         <div class="progress-container">
                             <div class="progress-bar-reading5" style="width: 60%"></div>
                         </div>
-                        <div class="progress-text">60% مكتمل</div>
+                        <div class="progress-text">100% مكتمل</div>
                     </div>
 
                     <div class="lesson-card">
@@ -772,10 +789,6 @@
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>الشرح والتدريبات</span>
                             </a>
-                            <a href="#" class="btn btn-game" target="_blank">
-                                <i class="fas fa-gamepad"></i>
-                                <span>الألعاب</span>
-                            </a>
                         </div>
                         <div class="status available-reading5">
                             <i class="fas fa-check-circle"></i>
@@ -784,7 +797,53 @@
                         <div class="progress-container">
                             <div class="progress-bar-reading5" style="width: 60%"></div>
                         </div>
-                        <div class="progress-text">60% مكتمل</div>
+                        <div class="progress-text">100% مكتمل</div>
+                    </div>
+            </div>
+
+            <!-- دروس القراءة - المحور السادس -->
+            <div class="category reading6">
+                <div class="category-header">
+                    <i class="fas fa-feather-alt category-icon"></i>
+                    <div class="category-title">القراءة - المحور السادس</div>
+                </div>
+                <div class="lessons-container">
+                    <div class="lesson-card">
+                        <div class="lesson-number">1</div>
+                        <div class="lesson-title">الأسئلة الثلاثة</div>
+                        <div class="lesson-links">
+                            <a href="https://omk811.github.io/Q3/" class="btn btn-lesson-reading6" target="_blank">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>الشرح والتدريبات</span>
+                            </a>
+                        </div>
+                        <div class="status available-reading6">
+                            <i class="fas fa-check-circle"></i>
+                            <span>الشرح والتدريبات متاحة الآن!</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-reading6" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">100% مكتمل</div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <div class="lesson-number">2</div>
+                        <div class="lesson-title">جرة لال</div>
+                        <div class="lesson-links">
+                            <a href="https://omk811.github.io/jrat-lal/" class="btn btn-lesson-reading6" target="_blank">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>الشرح والتدريبات</span>
+                            </a>
+                        </div>
+                        <div class="status available-reading6">
+                            <i class="fas fa-check-circle"></i>
+                            <span>الشرح والتدريبات متاحة الآن!</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-reading6" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">100% مكتمل</div>
                     </div>
                 </div>
             </div>
